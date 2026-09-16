@@ -315,6 +315,8 @@
   .lang-btn.active { background: var(--white); color: var(--navy); border-color: var(--white); }
 
   [data-zh] { display: none; }
+  .lang-zh [data-zh] { display: initial; }
+  .lang-zh [data-en] { display: none; }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
@@ -645,7 +647,7 @@
       <span class="cert-tag">TOEIC 940</span>
       <span class="cert-tag">DELF B1 (French)</span>
       <span class="cert-tag">German — Conversational</span>
-      <span class="cert-tag">M.A. English & American Literature · GPA 4.0</span>
+      <span class="cert-tag" data-en>M.A. Comparative Literature · GPA 4.0</span><span class="cert-tag" data-zh>比較文學碩士 · GPA 4.0</span>
     </div>
 
     <div class="award-list">
@@ -699,12 +701,11 @@
 
 <script>
   function setLang(lang) {
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.style.display = lang === 'en' ? '' : 'none';
-    });
-    document.querySelectorAll('[data-zh]').forEach(el => {
-      el.style.display = lang === 'zh' ? '' : 'none';
-    });
+    if (lang === 'zh') {
+      document.body.classList.add('lang-zh');
+    } else {
+      document.body.classList.remove('lang-zh');
+    }
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中'));
     });
