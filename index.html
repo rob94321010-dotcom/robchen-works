@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rob Chen 陳正立 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1B2A;
+    --blue: #1B6CA8;
+    --gold: #E8A838;
+    --cream: #F7F4EF;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,42,0.96);
+    backdrop-filter: blur(8px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name { color: var(--white); font-weight: 600; font-size: 1rem; letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.875rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.pm { color: #7EB8E8; }
+  .nav-links a.creative { color: #F5C842; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    padding: 80px 2rem 4rem;
+  }
+  .hero-inner {
+    max-width: 900px; margin: 0 auto; width: 100%;
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 span { font-weight: 600; }
+  .hero-zh {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2rem;
+  }
+  .hero-divider {
+    width: 48px; height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    margin-bottom: 2rem;
+  }
+  .hero-desc {
+    font-family: 'Lora', serif;
+    font-size: 1.125rem; line-height: 1.75;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-stats {
+    display: flex; flex-wrap: wrap; gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-stat { }
+  .hero-stat-num {
+    font-size: 2rem; font-weight: 600;
+    color: var(--white); line-height: 1;
+  }
+  .hero-stat-num.blue { color: #7EB8E8; }
+  .hero-stat-num.gold { color: var(--gold); }
+  .hero-stat-label {
+    font-size: 0.8rem; color: rgba(255,255,255,0.45);
+    margin-top: 0.25rem;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+    font-size: 0.78rem; font-weight: 500;
+    border: 1px solid;
+  }
+  .badge-blue { border-color: #1B6CA8; color: #7EB8E8; background: rgba(27,108,168,0.1); }
+  .badge-gold { border-color: #E8A838; color: #F5C842; background: rgba(232,168,56,0.1); }
+  .badge-neutral { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); background: transparent; }
+
+  /* SECTION BASE */
+  .section { padding: 5rem 2rem; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-label.blue { color: var(--blue); }
+  .section-label.gold { color: #B8821A; }
+  .section h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+    font-weight: 600; line-height: 1.2;
+    margin-bottom: 3rem;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    height: 1px; background: var(--border);
+    max-width: 900px; margin: 0 auto;
+  }
+  .section-alt { background: var(--cream); }
+
+  /* PM PROJECTS TABLE */
+  .proj-table {
+    width: 100%; border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  .proj-table th {
+    text-align: left; padding: 0.6rem 1rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    border-bottom: 2px solid var(--blue);
+  }
+  .proj-table td {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem; vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+  .proj-table tr:hover td { background: rgba(27,108,168,0.04); }
+  .proj-table td:first-child { font-weight: 600; color: var(--text); }
+  .proj-table .result { color: var(--blue); font-size: 0.85rem; }
+  .proj-table .mono {
+    font-size: 0.78rem; color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* MORE BUTTON */
+  .more-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin: 1.5rem auto 0;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid var(--blue); border-radius: 2px;
+    background: transparent; color: var(--blue);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .more-btn:hover { background: var(--blue); color: white; }
+  .more-row { display: none; }
+
+  /* EXPERIENCE */
+  .exp-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.4rem; }
+  .exp-title { font-size: 1.05rem; font-weight: 600; }
+  .exp-company { font-size: 0.9rem; color: var(--blue); font-weight: 500; margin-bottom: 0.75rem; }
+  .exp-date { font-size: 0.8rem; color: var(--muted); white-space: nowrap; font-style: italic; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.9rem; color: #374151; line-height: 1.6;
+    padding: 0.25rem 0 0.25rem 1.2rem; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--blue); font-weight: 600;
+  }
+  .exp-keyline {
+    font-size: 0.82rem; color: var(--muted);
+    font-style: italic; margin-top: 0.5rem;
+    padding-left: 1.2rem;
+  }
+
+  /* CREATIVE CARDS */
+  .creative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .creative-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .creative-card:hover {
+    border-color: #B8821A;
+    box-shadow: 0 4px 16px rgba(184,130,26,0.1);
+  }
+  .card-type {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #B8821A;
+    margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem; font-weight: 600;
+    margin-bottom: 0.4rem; line-height: 1.35;
+  }
+  .card-sub {
+    font-size: 0.78rem; color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .card-desc {
+    font-size: 0.85rem; color: #4B5563; line-height: 1.6;
+  }
+
+  /* AWARDS */
+  .award-list { display: flex; flex-direction: column; gap: 1rem; }
+  .award-item {
+    display: flex; align-items: flex-start; gap: 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .award-year {
+    font-size: 0.78rem; font-weight: 600; color: var(--muted);
+    white-space: nowrap; min-width: 40px; padding-top: 0.15rem;
+  }
+  .award-body { flex: 1; }
+  .award-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .award-meta { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+  /* CERTS */
+  .cert-row {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .cert-tag {
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--blue);
+    border-radius: 2px;
+    font-size: 0.82rem; color: var(--blue);
+    background: rgba(27,108,168,0.06);
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--navy); color: var(--white);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  .contact-section h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2rem; font-weight: 300;
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+  .contact-sub {
+    font-family: 'Lora', serif; font-style: italic;
+    color: rgba(255,255,255,0.5); margin-bottom: 2.5rem;
+  }
+  .contact-links {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    justify-content: center;
+  }
+  .contact-link {
+    padding: 0.65rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.1); border-color: white; color: white; }
+  .contact-link.primary { background: var(--blue); border-color: var(--blue); color: white; }
+  .contact-link.primary:hover { background: #1557A0; }
+
+  /* LANG TOGGLE */
+  .lang-toggle {
+    display: flex; gap: 0.5rem; align-items: center;
+  }
+  .lang-btn {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px; background: transparent;
+    color: rgba(255,255,255,0.6); font-size: 0.75rem;
+    cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .lang-btn.active { background: var(--white); color: var(--navy); border-color: var(--white); }
+
+  [data-zh] { display: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .nav-links { gap: 1rem; }
+    .hero-stats { gap: 1.5rem; }
+    .exp-header { flex-direction: column; }
+    .proj-table { font-size: 0.82rem; }
+    .proj-table th, .proj-table td { padding: 0.6rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Rob Chen 陳正立</span>
+  <ul class="nav-links">
+    <li><a href="#projects" class="pm">PM Work</a></li>
+    <li><a href="#creative" class="creative">Creative</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('zh')">中</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-label">Portfolio</span>
+    <h1><span>Rob Chen</span></h1>
+    <div class="hero-zh">陳正立</div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc" data-en>Aviation System Implementation PM · Bilingual Writer &amp; Translator · PMP® Certified</p>
+    <p class="hero-desc" data-en style="font-family: 'Lora', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.5); margin-top: -1rem;">The discipline of project management and the precision of literary writing are, to me, the same skill applied in different contexts.</p>
+    <p class="hero-desc" data-zh>航空系統導入專案管理師 · 雙語作家暨文案譯者 · PMP® 認證</p>
+    <p class="hero-desc" data-zh style="font-family: 'Lora', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.5); margin-top: -1rem;">專案管理的嚴謹與文學寫作的精準，對我而言是同一種能力在不同情境下的展現。</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num blue">8+</div>
+        <div class="hero-stat-label" data-en>Years PM Experience</div>
+        <div class="hero-stat-label" data-zh>年PM經驗</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num blue">102</div>
+        <div class="hero-stat-label" data-en>Months Project Delivery</div>
+        <div class="hero-stat-label" data-zh>個月專案交付</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num gold">940</div>
+        <div class="hero-stat-label">TOEIC</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num gold">13+</div>
+        <div class="hero-stat-label" data-en>Years Aviation</div>
+        <div class="hero-stat-label" data-zh>年航空實務</div>
+      </div>
+    </div>
+
+    <div class="hero-badges">
+      <span class="badge badge-blue">PMP® #4379030</span>
+      <span class="badge badge-blue">Jeppesen · CTi Pegasys</span>
+      <span class="badge badge-gold" data-en>Published Author</span>
+      <span class="badge badge-gold" data-zh>獲獎雙語作家</span>
+      <span class="badge badge-gold">M.A. GPA 4.0</span>
+      <span class="badge badge-neutral">SE · BE · AU · DK · TW</span>
+    </div>
+  </div>
+</section>
+
+<!-- PM PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <div class="section-label blue" data-en>Project Management</div>
+    <div class="section-label blue" data-zh>專案管理</div>
+    <h2 data-en>Selected Project Portfolio</h2>
+    <h2 data-zh>精選專案組合</h2>
+
+    <table class="proj-table" data-en>
+      <thead>
+        <tr>
+          <th>Project</th><th>Role</th><th>Duration</th><th>Key Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>CTi Pegasys CMS — Greenfield Launch</td><td class="mono">Project Manager (5+)</td><td class="mono">22 mo.</td><td class="result">On-time go-live from zero; full SOP library delivered</td></tr>
+        <tr><td>Jeppesen CMS Implementation</td><td class="mono">Core Team Member (10)</td><td class="mono">18 mo.</td><td class="result">Zero critical defects at UAT; written recommendations from Boeing Global Services Senior Manager and Jeppesen specialist</td></tr>
+        <tr><td>Braathens Regional Airlines Data Analytics</td><td class="mono">Scheduling Analyst & Optimizer (3)</td><td class="mono">12 mo.</td><td class="result">Optimized crew scheduling; reduced operational costs</td></tr>
+        <tr><td>Brussels Airlines Training Replanning</td><td class="mono">Project Manager (3)</td><td class="mono">7 mo.</td><td class="result">100% regulatory compliance; full documentation delivered</td></tr>
+        <tr><td>Jettime Crew Planning Project</td><td class="mono">Project Manager (3)</td><td class="mono">4 mo.</td><td class="result">Full Winter 2023/24 crew pairing & rostering on time</td></tr>
+        <tr class="more-row"><td>Project Rubik (Virgin Australia)</td><td class="mono">Project Manager (2)</td><td class="mono">6 mo.</td><td class="result">Comparative data baseline: VA native system vs Jeppesen CMS</td></tr>
+        <tr class="more-row"><td>IQSMS Safety Management System</td><td class="mono">Core Team Member (3)</td><td class="mono">13 mo.</td><td class="result">Passed acceptance; STARLUX Airlines SMS certified</td></tr>
+        <tr class="more-row"><td>Jetstar Crew Preference System Evaluation</td><td class="mono">Tech Evaluator (4)</td><td class="mono">3 mo.</td><td class="result">Strategic assessment for global crew scheduling optimization</td></tr>
+        <tr class="more-row"><td>VeeOne Cross-Cultural Communication Strategy</td><td class="mono">Project Manager (3)</td><td class="mono">8 mo.</td><td class="result">Cultural framework delivered to HR for implementation</td></tr>
+        <tr class="more-row"><td>VeeOne Hibermate Internal Communication</td><td class="mono">Project Manager (2)</td><td class="mono">3 mo.</td><td class="result">High-trust cross-cultural communication channel established</td></tr>
+        <tr class="more-row"><td>VeeOne Teams Channel Restructure</td><td class="mono">Project Manager (2)</td><td class="mono">3 mo.</td><td class="result">Significantly reduced organizational information gaps</td></tr>
+        <tr class="more-row"><td>NAER SurveyCake System Implementation</td><td class="mono">Project Manager (2)</td><td class="mono">3 mo.</td><td class="result">System implemented & handed over; user onboarding completed</td></tr>
+      </tbody>
+    </table>
+
+    <table class="proj-table" data-zh>
+      <thead>
+        <tr>
+          <th>專案名稱</th><th>角色</th><th>期程</th><th>核心成果</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>CTi Pegasys 系統導入（Greenfield）</td><td class="mono">專案經理（5人以上）</td><td class="mono">22 個月</td><td class="result">如期上線；完整 SOP 文件庫建立完成</td></tr>
+        <tr><td>Jeppesen CMS 系統導入</td><td class="mono">核心成員（10人）</td><td class="mono">18 個月</td><td class="result">UAT 零重大缺陷；獲 Boeing Global Services 資深經理及 Jeppesen 專家雙重推薦</td></tr>
+        <tr><td>Braathens Regional Airlines 數據分析</td><td class="mono">排班分析師暨優化師（3人）</td><td class="mono">12 個月</td><td class="result">優化機組員排班，降低 BRA 營運成本</td></tr>
+        <tr><td>Brussels Airlines 訓練航班重新規劃</td><td class="mono">專案經理（3人）</td><td class="mono">7 個月</td><td class="result">100% 法規合規；完整任務流程文件交付</td></tr>
+        <tr><td>Jettime 組員排班規劃專案</td><td class="mono">專案經理（3人）</td><td class="mono">4 個月</td><td class="result">Winter 2023/24 完整配對排班如期交付</td></tr>
+        <tr class="more-row"><td>Project Rubik（Virgin Australia）</td><td class="mono">專案經理（2人）</td><td class="mono">6 個月</td><td class="result">建立 VA 系統與 Jeppesen CMS 的 Pairing 優化數據比較基礎</td></tr>
+        <tr class="more-row"><td>IQSMS 安全管理系統</td><td class="mono">核心成員（3人）</td><td class="mono">13 個月</td><td class="result">通過系統驗收；星宇航空 SMS 認證取得</td></tr>
+        <tr class="more-row"><td>Jetstar 組員偏好系統評估</td><td class="mono">技術評估員（4人）</td><td class="mono">3 個月</td><td class="result">策略性建議交付；支援全球機組排班系統優化決策</td></tr>
+        <tr class="more-row"><td>VeeOne 跨文化溝通策略研究</td><td class="mono">專案經理（3人）</td><td class="mono">8 個月</td><td class="result">完成文化差異研究報告與溝通框架，交付 HR 執行</td></tr>
+        <tr class="more-row"><td>VeeOne Hibermate 內部溝通專案</td><td class="mono">專案經理（2人）</td><td class="mono">3 個月</td><td class="result">建立高信任度跨文化溝通管道</td></tr>
+        <tr class="more-row"><td>VeeOne Teams 知識庫重構</td><td class="mono">專案經理（2人）</td><td class="mono">3 個月</td><td class="result">大幅減少組織資訊落差</td></tr>
+        <tr class="more-row"><td>國家教育研究院 SurveyCake 系統導入</td><td class="mono">專案經理（2人）</td><td class="mono">3 個月</td><td class="result">系統完成導入與移交；完成使用者教育訓練</td></tr>
+      </tbody>
+    </table>
+
+    <button class="more-btn" onclick="toggleMore()" id="more-btn">
+      <span id="more-icon">▼</span>
+      <span id="more-text-en" data-en>+ 7 More Projects</span>
+      <span id="more-text-zh" data-zh>+ 7 個更多專案</span>
+    </button>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CREATIVE WORK -->
+<section class="section section-alt" id="creative">
+  <div class="section-inner">
+    <div class="section-label gold" data-en>Creative Work</div>
+    <div class="section-label gold" data-zh>創意作品</div>
+    <h2 data-en>Translation, Copywriting & Content</h2>
+    <h2 data-zh>翻譯、文案與內容創作</h2>
+
+    <div class="creative-grid">
+
+      <div class="creative-card">
+        <div class="card-type" data-en>Music Translation</div>
+        <div class="card-type" data-zh>音樂翻譯</div>
+        <div class="card-title">〈有人在夜裡跳舞〉</div>
+        <div class="card-sub">WUTU 烏兔樂團 · 2022</div>
+        <div class="card-desc" data-en>ZH→EN lyrics translation for official animated MV. Credited as official translator in YouTube production credits.</div>
+        <div class="card-desc" data-zh>烏兔樂團官方 MV 歌詞中譯英，YouTube 製作名單正式署名。</div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-type" data-en>Album Translation</div>
+        <div class="card-type" data-zh>專輯翻譯</div>
+        <div class="card-title"><em>Women's Island</em>《女人島》</div>
+        <div class="card-sub">阿洛·卡力亭·巴奇辣 Ado Kaliting Pacidal · 2021</div>
+        <div class="card-desc" data-en>Full ZH→EN album translation: 7 song lyrics, album concept essay, and 3 international Austronesian musician bios (Malaysia, New Zealand, Indonesia).</div>
+        <div class="card-desc" data-zh>7首歌詞、專輯概念文案及3位國際南島音樂人簡介（馬來西亞、紐西蘭、印尼）完整中譯英。</div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-type" data-en>Institutional Copywriting</div>
+        <div class="card-type" data-zh>機構文案</div>
+        <div class="card-title">Sky Lantern Teacup &amp; Indigo Dyed Coaster</div>
+        <div class="card-sub">國家教育研究院 NAER · 2020</div>
+        <div class="card-desc" data-en>Bilingual EN/ZH institutional gift copy for two cultural heritage products.</div>
+        <div class="card-desc" data-zh>天燈茶杯與藍染杯墊雙語文化禮品文案撰寫。</div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-type" data-en>Literary Translation</div>
+        <div class="card-type" data-zh>文學翻譯</div>
+        <div class="card-title">Jean Cocteau — "J'ai Trop Aimé"</div>
+        <div class="card-sub"><em>Chien Kun Poetry Quarterly</em>《乾坤詩刊》Vol. 54 · 2010</div>
+        <div class="card-desc" data-en>FR→ZH &amp; EN trilingual literary translation published in literary journal.</div>
+        <div class="card-desc" data-zh>法文詩作同時譯為中文與英文，刊登於《乾坤詩刊》第54期。</div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-type" data-en>Editorial Platform</div>
+        <div class="card-type" data-zh>創作平台</div>
+        <div class="card-title">羅拔的老窩 Rob's Nest</div>
+        <div class="card-sub">Facebook · Est. 2019 · 1,382 followers</div>
+        <div class="card-desc" data-en>Content platform with regular columns: film criticism, music, literary reviews, parenting. Flagship column 《袋鼠羅爸育兒週記》 ran 90 consecutive weekly episodes (2020–2022); closing essay published in <em>Liberty Times</em>.</div>
+        <div class="card-desc" data-zh>設有電影評論、音樂賞析、文學分享等固定欄目。《袋鼠羅爸育兒週記》連載90週，後記刊登於《自由時報》。</div>
+      </div>
+
+      <div class="creative-card">
+        <div class="card-type" data-en>Published Prose</div>
+        <div class="card-type" data-zh>媒體刊登</div>
+        <div class="card-title">Media Publications</div>
+        <div class="card-sub">2022–2026</div>
+        <div class="card-desc" data-en>5 essays in <em>United Daily News</em>《聯合報》(2022–2026) · 1 essay in <em>Liberty Times</em>《自由時報》(2022). Most recent: 〈扁掉的聖誕老人〉April 2026.</div>
+        <div class="card-desc" data-zh>《聯合報》刊登散文5篇（2022–2026）·《自由時報》1篇（2022）· 最新：〈扁掉的聖誕老人〉2026年4月。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="section-label blue" data-en>Experience</div>
+    <div class="section-label blue" data-zh>工作經歷</div>
+    <h2 data-en>Professional Experience</h2>
+    <h2 data-zh>專業經歷</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Planning Specialist & Consultant</div>
+          <div class="exp-title" data-zh>企劃顧問</div>
+          <div class="exp-company">VeeOne · Sweden (Remote)</div>
+        </div>
+        <div class="exp-date">Apr 2022 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Sole bilingual PM for B2B consulting engagements across Sweden, Belgium, Australia, and Denmark</li>
+        <li data-zh>擔任唯一雙語 PM，服務瑞典、比利時、澳洲及丹麥等地的航空客戶</li>
+        <li data-en>Produced English SOPs, training materials, analytical reports and client-facing presentations</li>
+        <li data-zh>以英文產出系統操作說明、SOP、訓練教材及技術分析報告</li>
+        <li data-en>Coordinated cross-cultural remote team across 4+ time zones</li>
+        <li data-zh>協調跨越4個以上時區的跨國遠距團隊</li>
+      </ul>
+      <div class="exp-keyline" data-en>Key clients: Braathens Regional Airlines (SE) · Brussels Airlines (BE) · Virgin Australia (AU) · Jettime (DK) · Jetstar (AU)</div>
+      <div class="exp-keyline" data-zh>主要客戶：Braathens Regional Airlines（瑞典）· Brussels Airlines（比利時）· Virgin Australia（澳洲）· Jettime（丹麥）· Jetstar（澳洲）</div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Manager / Senior Staff</div>
+          <div class="exp-title" data-zh>課長 / 資深專員</div>
+          <div class="exp-company">STARLUX Airlines 星宇航空 · Taiwan</div>
+        </div>
+        <div class="exp-date">Apr 2018 – Apr 2020</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Founding member of the Pilot Scheduling Section — de facto department lead reporting directly to VP</li>
+        <li data-zh>航員調派課開航元老，直屬副總管轄</li>
+        <li data-en>PM for 22-month Greenfield CTi Pegasys CMS implementation</li>
+        <li data-zh>主導22個月 CTi Pegasys CMS Greenfield 系統導入</li>
+        <li data-en>Authored bilingual Scheduling Guidelines manual and SOP suite; certified internal lecturer</li>
+        <li data-zh>編撰雙語排班準則手冊及SOP文件；取得企業內部講師認證</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Administrative Assistant</div>
+          <div class="exp-title" data-zh>行政助理</div>
+          <div class="exp-company">National Academy for Educational Research 國家教育研究院 · Taiwan</div>
+        </div>
+        <div class="exp-date">May 2020 – Nov 2020</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>PM for SurveyCake survey system implementation</li>
+        <li data-zh>主導 SurveyCake 問卷系統導入專案（PM）</li>
+        <li data-en>Bilingual EN/ZH institutional copywriting and translation</li>
+        <li data-zh>協助綜規室中英文文案撰寫與編譯</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Asst. Dep. Section Manager · Crew Schedule Planner</div>
+          <div class="exp-title" data-zh>助理副課長 · 組員排班規劃師</div>
+          <div class="exp-company">EVA Air 長榮航空 · Taiwan</div>
+        </div>
+        <div class="exp-date">Jul 2011 – Mar 2018</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Core team member in 18-month Jeppesen CMS implementation (10-person cross-functional team)</li>
+        <li data-zh>參與18個月 Jeppesen CMS 系統導入（10人跨部門團隊）核心成員</li>
+        <li data-en>As a junior team member, received written recommendation from Boeing Global Services Senior Manager citing 'good potential of leadership attributes'</li>
+        <li data-zh>以新進成員身份獲 Boeing Global Services 資深經理於推薦信中評為具備『領導潛質』</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- AWARDS & CREDENTIALS -->
+<section class="section section-alt" id="awards">
+  <div class="section-inner">
+    <div class="section-label gold" data-en>Recognition & Credentials</div>
+    <div class="section-label gold" data-zh>獎項與資歷</div>
+    <h2 data-en>Awards, Publications & Certifications</h2>
+    <h2 data-zh>獎項、出版與證照</h2>
+
+    <div class="cert-row">
+      <span class="cert-tag">PMP® #4379030 (PMI, 2026)</span>
+      <span class="cert-tag">Jeppesen Rostering (Boeing, 2022)</span>
+      <span class="cert-tag">Hands-On Rave (VeeOne, 2025–26)</span>
+      <span class="cert-tag">TOEIC 940</span>
+      <span class="cert-tag">DELF B1 (French)</span>
+      <span class="cert-tag">German — Conversational</span>
+      <span class="cert-tag">M.A. English & American Literature · GPA 4.0</span>
+    </div>
+
+    <div class="award-list">
+      <div class="award-item">
+        <div class="award-year">2024</div>
+        <div class="award-body">
+          <div class="award-title" data-en>Outstanding Young Poet Award (2023) — Poetry Society of the Republic of China 中華民國新詩學會</div>
+          <div class="award-title" data-zh>中華民國新詩學會 2023 年優秀青年詩人獎</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2022</div>
+        <div class="award-body">
+          <div class="award-title" data-en>1st Prize — "Poet Write for You" Bilingual Poetry Competition（文青稅客，為你寫詩）</div>
+          <div class="award-title" data-zh>「文青稅客，為你寫詩」雙語詩徵文首獎</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2019</div>
+        <div class="award-body">
+          <div class="award-title" data-en>Published Author — 《詩眠集》<em>In Some Nights, Poetry</em></div>
+          <div class="award-title" data-zh>出版中英雙語詩集《詩眠集》· 秀威資訊</div>
+          <div class="award-meta" data-en>Interviewed by <em>The Roundtable: A Journal of Poetry</em> (Hong Kong, vol.66) · Hansheng Radio 漢聲廣播電台</div>
+          <div class="award-meta" data-zh>接受香港《圓桌詩刊》第六十六期專訪 · 漢聲廣播電台節目分享</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2009</div>
+        <div class="award-body">
+          <div class="award-title" data-en>1st Prize — 2nd Swordsoul Literary Competition 第二屆舞劍壇文學獎, New Poetry Category</div>
+          <div class="award-title" data-zh>第二屆舞劍壇文學獎新詩組首獎 · 〈麗姐〉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2 data-en>Get in Touch</h2>
+  <h2 data-zh>聯絡我</h2>
+  <p class="contact-sub" data-en>Open to PM, Bilingual MarComm, Technical Writing & Content roles</p>
+  <p class="contact-sub" data-zh>歡迎 PM、雙語行銷編譯、技術文件及內容相關職務洽詢</p>
+  <div class="contact-links">
+    <a href="mailto:rob94321010@gmail.com" class="contact-link primary">rob94321010@gmail.com</a>
+    <a href="https://linkedin.com/in/chengli-chen-177312a1" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="https://www.facebook.com/Mondayforever/" target="_blank" class="contact-link">Rob's Nest 羅拔的老窩</a>
+  </div>
+</section>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.style.display = lang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[data-zh]').forEach(el => {
+      el.style.display = lang === 'zh' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中'));
+    });
+  }
+
+  function toggleMore() {
+    const rows = document.querySelectorAll('.more-row');
+    const btn = document.getElementById('more-btn');
+    const icon = document.getElementById('more-icon');
+    const textEn = document.getElementById('more-text-en');
+    const textZh = document.getElementById('more-text-zh');
+    const isHidden = rows[0].style.display === 'none' || rows[0].style.display === '';
+    rows.forEach(r => r.style.display = isHidden ? 'table-row' : 'none');
+    icon.textContent = isHidden ? '▲' : '▼';
+    textEn.textContent = isHidden ? 'Show Less' : '+ 7 More Projects';
+    textZh.textContent = isHidden ? '收起' : '+ 7 個更多專案';
+  }
+
+  // Init
+  setLang('en');
+</script>
+</body>
+</html>
