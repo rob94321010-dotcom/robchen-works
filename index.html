@@ -314,9 +314,10 @@
   }
   .lang-btn.active { background: var(--white); color: var(--navy); border-color: var(--white); }
 
-  [data-zh] { display: none; }
-  .lang-zh [data-zh] { display: initial; }
-  .lang-zh [data-en] { display: none; }
+  [data-zh] { display: none !important; }
+  .lang-zh [data-zh] { display: revert; }
+  .lang-zh [data-en] { display: none !important; }
+  [data-zh] { display: none !important; }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
@@ -643,7 +644,7 @@
     <div class="cert-row">
       <span class="cert-tag">PMP® #4379030 (PMI, 2026)</span>
       <span class="cert-tag">Jeppesen Rostering (Boeing, 2022)</span>
-      <span class="cert-tag">Hands-On Rave (VeeOne, 2025–26)</span>
+      <span class="cert-tag">Hands-On Rave Training (VeeOne Academy, 2025–26) — Rave coding, Jeppesen scheduling rules</span>
       <span class="cert-tag">TOEIC 940</span>
       <span class="cert-tag">DELF B1 (French)</span>
       <span class="cert-tag">German — Conversational</span>
