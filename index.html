@@ -314,10 +314,10 @@
   }
   .lang-btn.active { background: var(--white); color: var(--navy); border-color: var(--white); }
 
-  [data-zh] { display: none !important; }
-  .lang-zh [data-zh] { display: revert; }
+  [data-zh] { display: none; }
+  .lang-zh [data-zh] { display: revert !important; }
+  .lang-zh li[data-zh] { display: list-item !important; }
   .lang-zh [data-en] { display: none !important; }
-  [data-zh] { display: none !important; }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
@@ -565,8 +565,8 @@
         <div class="exp-date">Apr 2022 – Present</div>
       </div>
       <ul class="exp-bullets">
-        <li data-en>Sole bilingual PM for B2B consulting engagements across Sweden, Belgium, Australia, and Denmark</li>
-        <li data-zh>擔任唯一雙語 PM，服務瑞典、比利時、澳洲及丹麥等地的航空客戶</li>
+        <li data-en>PM for B2B consulting engagements across Sweden, Belgium, Australia, and Denmark</li>
+        <li data-zh>以英文服務瑞典、比利時、澳洲及丹麥等地的航空客戶，擔任客戶窗口</li>
         <li data-en>Produced English SOPs, training materials, analytical reports and client-facing presentations</li>
         <li data-zh>以英文產出系統操作說明、SOP、訓練教材及技術分析報告</li>
         <li data-en>Coordinated cross-cultural remote team across 4+ time zones</li>
