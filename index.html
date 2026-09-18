@@ -314,10 +314,10 @@
   }
   .lang-btn.active { background: var(--white); color: var(--navy); border-color: var(--white); }
 
-  [data-zh] { display: none; }
-  .lang-zh [data-zh] { display: revert !important; }
-  .lang-zh li[data-zh] { display: list-item !important; }
+  [data-zh] { display: none !important; }
+  .lang-zh [data-zh] { display: revert; }
   .lang-zh [data-en] { display: none !important; }
+  [data-zh] { display: none !important; }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
