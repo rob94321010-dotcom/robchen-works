@@ -321,11 +321,42 @@
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
-    .nav-links { gap: 1rem; }
+    html { scroll-padding-top: 100px; }
+
+    /* Nav: name + language toggle on the first row, links on the second */
+    nav {
+      flex-wrap: wrap; height: auto;
+      padding: 0.6rem 1.25rem; row-gap: 0.35rem;
+    }
+    .nav-name { white-space: nowrap; }
+    .nav-links {
+      order: 3; width: 100%;
+      gap: 1rem; overflow-x: auto;
+      padding-bottom: 0.15rem;
+    }
+    .nav-links a { white-space: nowrap; }
+
+    .hero { padding: 120px 1.25rem 3rem; }
+    .section { padding: 3.5rem 1.25rem; }
+    .contact-section { padding: 3.5rem 1.25rem; }
     .hero-stats { gap: 1.5rem; }
     .exp-header { flex-direction: column; }
-    .proj-table { font-size: 0.82rem; }
-    .proj-table th, .proj-table td { padding: 0.6rem 0.5rem; }
+    .creative-grid { grid-template-columns: 1fr; }
+
+    /* Project table: one card per project instead of a wide table */
+    body:not(.lang-zh) .proj-table[data-en],
+    .lang-zh .proj-table[data-zh] { display: block !important; }
+    .proj-table thead { display: none; }
+    .proj-table tbody, .proj-table tr, .proj-table td { display: block; }
+    .proj-table tr { padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+    .proj-table tr.more-row { display: none; }
+    .proj-table tr.more-row[style*="table-row"] { display: block !important; }
+    .proj-table tr:hover td { background: transparent; }
+    .proj-table td { padding: 0; border-bottom: none; }
+    .proj-table td:first-child { font-size: 0.95rem; line-height: 1.4; margin-bottom: 0.3rem; }
+    .proj-table td.mono { display: inline; white-space: normal; }
+    .proj-table td.mono + td.mono::before { content: ' · '; }
+    .proj-table .result { margin-top: 0.35rem; line-height: 1.5; }
   }
 </style>
 </head>
