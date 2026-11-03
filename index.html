@@ -13,6 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rob Chen 陳正立 — Portfolio</title>
+<meta name="description" content="Rob Chen（陳正立）：航空系統導入專案經驗與中英雙語寫作作品，PMP®認證，13年以上航空實務。Aviation system implementation projects and bilingual writing, PMP®, 13+ years in aviation.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rob Chen（陳正立）｜航空系統導入・雙語寫作">
+<meta property="og:description" content="Rob Chen（陳正立）：航空系統導入專案經驗與中英雙語寫作作品，PMP®認證，13年以上航空實務。Aviation system implementation projects and bilingual writing, PMP®, 13+ years in aviation.">
+<meta property="og:url" content="https://rob94321010-dotcom.github.io/robchen-works/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -395,9 +400,7 @@
     <div class="hero-zh">陳正立</div>
     <div class="hero-divider"></div>
     <p class="hero-desc" data-en>Aviation System Implementation PM · Technical &amp; Bilingual Writer · PMP® Certified</p>
-    <p class="hero-desc" data-en style="font-family: 'Lora', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.5); margin-top: -1rem;">The discipline of project management and the precision of literary writing are, to me, the same skill applied in different contexts.</p>
     <p class="hero-desc" data-zh>航空系統導入專案管理師 · 技術文件暨雙語寫作 · PMP®認證</p>
-    <p class="hero-desc" data-zh style="font-family: 'Lora', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.5); margin-top: -1rem;">專案管理的嚴謹與文學寫作的精準，對我而言是同一種能力在不同情境下的展現。</p>
 
     <div class="hero-stats">
       <div class="hero-stat">
@@ -466,7 +469,7 @@
       </thead>
       <tbody>
         <tr class="group-row"><td colspan="4">航空系統導入</td></tr>
-        <tr><td>CTi Pegasys系統導入（Greenfield）</td><td class="mono">專案經理（5人以上）</td><td class="mono">22個月</td><td class="result">如期上線；交付排班作業SOP</td></tr>
+        <tr><td>CTi Pegasys系統導入（新航空公司從零建置）</td><td class="mono">專案經理（5人以上）</td><td class="mono">22個月</td><td class="result">如期上線；交付排班作業SOP</td></tr>
         <tr><td>Jeppesen CMS系統導入</td><td class="mono">核心成員，負責需求確認與測試（10人）</td><td class="mono">18個月</td><td class="result">UAT零重大缺陷；順利上線</td></tr>
         <tr><td>IQSMS安全管理系統</td><td class="mono">核心成員，負責需求確認與測試（3人）</td><td class="mono">13個月</td><td class="result">通過系統驗收；協助星宇航空取得SMS相關認證</td></tr>
         <tr class="group-row"><td colspan="4">航空客戶顧問專案（VeeOne，與同事共同負責）</td></tr>
@@ -570,7 +573,7 @@
         <li data-en>Promoted to Section Manager upon the airline's commercial launch (Jan 2020)</li>
         <li data-zh>開航後正式升任課長</li>
         <li data-en>PM for 22-month Greenfield CTi Pegasys CMS implementation</li>
-        <li data-zh>主導22個月CTi Pegasys CMS Greenfield系統導入</li>
+        <li data-zh>主導22個月CTi Pegasys CMS導入，新航空公司從零建置</li>
         <li data-en>Authored bilingual Scheduling Guidelines manual and SOP suite; certified internal instructor (STARLUX, 2019, with distinction)</li>
         <li data-zh>編撰雙語排班準則手冊及SOP文件；2019年以優異成績取得星宇航空內部講師認證</li>
       </ul>
@@ -606,6 +609,8 @@
     <div class="section-label gold" data-zh>創意作品</div>
     <h2 data-en>Translation, Copywriting & Content</h2>
     <h2 data-zh>翻譯、文案與內容創作</h2>
+    <p data-en style="font-family: 'Lora', serif; font-style: italic; color: var(--muted); margin: -0.5rem 0 1.5rem;">The discipline of project management and the precision of literary writing are, to me, the same skill applied in different contexts.</p>
+    <p data-zh style="font-family: 'Lora', serif; font-style: italic; color: var(--muted); margin: -0.5rem 0 1.5rem;">專案管理的嚴謹與文學寫作的精準，對我而言是同一種能力在不同情境下的展現。</p>
 
     <div class="creative-grid">
 
@@ -796,6 +801,8 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中'));
     });
+    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+    try { localStorage.setItem('lang', lang); } catch (e) {}
   }
 
   function toggleMore() {
@@ -812,7 +819,18 @@
   }
 
   // Init
-  setLang('en');
+  (function () {
+    var lang = 'en';
+    var nav = (navigator.language || '').toLowerCase();
+    if (nav.indexOf('zh') === 0) lang = 'zh';
+    try {
+      var saved = localStorage.getItem('lang');
+      if (saved === 'en' || saved === 'zh') lang = saved;
+    } catch (e) {}
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'en' || q === 'zh') lang = q;
+    setLang(lang);
+  })();
 </script>
 </body>
 </html>
