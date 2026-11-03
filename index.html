@@ -190,6 +190,7 @@
   }
   .more-btn:hover { background: var(--blue); color: white; }
   .more-row { display: none; }
+  .proj-table tr.group-row td { background: rgba(27,108,168,0.06); color: var(--blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em; padding-top: 0.7rem; padding-bottom: 0.5rem; }
 
   /* EXPERIENCE */
   .exp-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
@@ -376,8 +377,8 @@
   <span class="nav-name">Rob Chen 陳正立</span>
   <ul class="nav-links">
     <li><a href="#projects" class="pm">Projects</a></li>
-    <li><a href="#creative" class="creative">Creative</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#creative" class="creative">Creative</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="lang-toggle">
@@ -405,11 +406,6 @@
         <div class="hero-stat-label" data-zh>年專案交付經驗</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num blue">100+</div>
-        <div class="hero-stat-label" data-en>Months Project Delivery</div>
-        <div class="hero-stat-label" data-zh>個月專案交付</div>
-      </div>
-      <div class="hero-stat">
         <div class="hero-stat-num gold">940</div>
         <div class="hero-stat-label">TOEIC</div>
       </div>
@@ -423,8 +419,8 @@
     <div class="hero-badges">
       <span class="badge badge-blue">PMP® #4379030</span>
       <span class="badge badge-blue">Jeppesen · CTi Pegasys</span>
-      <span class="badge badge-gold" data-en>Award-winning Bilingual Author</span>
-      <span class="badge badge-gold" data-zh>獲獎雙語作家</span>
+      <span class="badge badge-gold" data-en>Bilingual Writer EN/ZH</span>
+      <span class="badge badge-gold" data-zh>中英雙語寫作</span>
       <span class="badge badge-gold">M.A. GPA 4.0</span>
       <span class="badge badge-neutral">SE · BE · TW</span>
     </div>
@@ -438,8 +434,8 @@
     <div class="section-label blue" data-zh>專案經驗</div>
     <h2 data-en>Selected Project Portfolio</h2>
     <h2 data-zh>精選專案組合</h2>
-    <p data-en style="color:#64748b;margin:-8px 0 16px">Selected projects only. 100+ months of project delivery in total, including client projects not listed here; some ran concurrently.</p>
-    <p data-zh style="color:#64748b;margin:-8px 0 16px">以下為精選專案；總交付逾100個月，含未列出的客戶專案，部分同步進行。</p>
+    <p data-en style="color:#64748b;margin:-8px 0 16px">Selected projects, grouped by type.</p>
+    <p data-zh style="color:#64748b;margin:-8px 0 16px">以下為精選專案，依性質分組。</p>
 
     <table class="proj-table" data-en>
       <thead>
@@ -448,14 +444,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>CTi Pegasys CMS — Greenfield Launch</td><td class="mono">Project Manager (5+)</td><td class="mono">22 mo.</td><td class="result">On-time go-live from zero; full SOP library delivered</td></tr>
-        <tr><td>Jeppesen CMS Implementation</td><td class="mono">Core Team Member · Business Analyst (10)</td><td class="mono">18 mo.</td><td class="result">Zero critical defects at UAT; LinkedIn recommendation from the Boeing Global Services Senior Manager who led the project</td></tr>
-        <tr><td>Braathens Regional Airlines Crew Pairing and Data Analysis</td><td class="mono">Co-Project Manager · Business Process Analyst (3)</td><td class="mono">12 mo.</td><td class="result">Delivered monthly crew pairings and cost analysis; co-authored a repeatable pairing process</td></tr>
+        <tr class="group-row"><td colspan="4">Aviation System Implementations</td></tr>
+        <tr><td>CTi Pegasys CMS — Greenfield Launch</td><td class="mono">Project Manager (5+)</td><td class="mono">22 mo.</td><td class="result">On-time go-live at a new airline; scheduling SOPs delivered</td></tr>
+        <tr><td>Jeppesen CMS Implementation</td><td class="mono">Core Team Member — requirements &amp; testing (10)</td><td class="mono">18 mo.</td><td class="result">Zero critical defects at UAT; smooth go-live</td></tr>
+        <tr><td>IQSMS Safety Management System</td><td class="mono">Core Team Member — requirements &amp; testing (3)</td><td class="mono">13 mo.</td><td class="result">Passed acceptance; supported STARLUX in obtaining SMS-related certification</td></tr>
+        <tr class="group-row"><td colspan="4">Airline Client Projects (VeeOne, co-led with a colleague)</td></tr>
+        <tr><td>Braathens Regional Airlines Crew Pairing and Data Analysis</td><td class="mono">Co-Project Manager — pairing &amp; analysis (3)</td><td class="mono">12 mo.</td><td class="result">Delivered monthly crew pairings and cost analysis; co-authored a repeatable pairing process</td></tr>
         <tr><td>Brussels Airlines Training Replanning</td><td class="mono">Co-Project Manager (2)</td><td class="mono">7 mo.</td><td class="result">100% regulatory compliance; full documentation delivered</td></tr>
-        <tr class="more-row"><td>IQSMS Safety Management System</td><td class="mono">Core Team Member · Business Analyst (3)</td><td class="mono">13 mo.</td><td class="result">Passed acceptance; supported STARLUX in obtaining SMS-related certification</td></tr>
-        <tr class="more-row"><td>VeeOne Cross-Cultural Communication Strategy</td><td class="mono">Project Manager (3)</td><td class="mono">10 mo.</td><td class="result">Cultural framework delivered to HR for implementation; builds on the HiberMate one-to-one cross-cultural pairing launched in 2023</td></tr>
-        <tr class="more-row"><td>VeeOne Teams Channel Restructure</td><td class="mono">Project Manager (2)</td><td class="mono">3 mo.</td><td class="result">Restructured Teams channels into a user-friendly knowledge and communication base</td></tr>
-        <tr class="more-row"><td>NAER SurveyCake System Implementation</td><td class="mono">Project Manager (2)</td><td class="mono">3 mo.</td><td class="result">System implemented & handed over; user onboarding completed</td></tr>
+        <tr class="group-row more-row"><td colspan="4">Other Projects</td></tr>
+        <tr class="more-row"><td>NAER SurveyCake System Implementation</td><td class="mono">Owner (2)</td><td class="mono">3 mo.</td><td class="result">System implemented and handed over; user training completed</td></tr>
+        <tr class="more-row"><td>VeeOne Teams Channel Restructure</td><td class="mono">Owner (2)</td><td class="mono">3 mo.</td><td class="result">Restructured internal Teams channels and document index</td></tr>
+        <tr class="more-row"><td>VeeOne Cross-Cultural Communication Strategy</td><td class="mono">Owner (3)</td><td class="mono">10 mo.</td><td class="result">Research report and communication framework delivered to HR</td></tr>
       </tbody>
     </table>
 
@@ -466,29 +465,142 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>CTi Pegasys系統導入（Greenfield）</td><td class="mono">專案經理（5人以上）</td><td class="mono">22個月</td><td class="result">如期上線；完整SOP文件庫建立完成</td></tr>
-        <tr><td>Jeppesen CMS系統導入</td><td class="mono">核心成員暨業務分析師（10人）</td><td class="mono">18個月</td><td class="result">UAT零重大缺陷；獲專案負責人Boeing Global Services資深經理推薦</td></tr>
-        <tr><td>Braathens Regional Airlines組員配對與數據分析</td><td class="mono">共同專案經理暨流程分析師（3人）</td><td class="mono">12個月</td><td class="result">交付每月組員配對與成本分析；共同撰寫可重複的配對作業流程</td></tr>
+        <tr class="group-row"><td colspan="4">航空系統導入</td></tr>
+        <tr><td>CTi Pegasys系統導入（Greenfield）</td><td class="mono">專案經理（5人以上）</td><td class="mono">22個月</td><td class="result">如期上線；交付排班作業SOP</td></tr>
+        <tr><td>Jeppesen CMS系統導入</td><td class="mono">核心成員，負責需求確認與測試（10人）</td><td class="mono">18個月</td><td class="result">UAT零重大缺陷；順利上線</td></tr>
+        <tr><td>IQSMS安全管理系統</td><td class="mono">核心成員，負責需求確認與測試（3人）</td><td class="mono">13個月</td><td class="result">通過系統驗收；協助星宇航空取得SMS相關認證</td></tr>
+        <tr class="group-row"><td colspan="4">航空客戶顧問專案（VeeOne，與同事共同負責）</td></tr>
+        <tr><td>Braathens Regional Airlines組員配對與數據分析</td><td class="mono">共同專案經理，負責配對與分析（3人）</td><td class="mono">12個月</td><td class="result">交付每月組員配對與成本分析；共同撰寫可重複的配對作業流程</td></tr>
         <tr><td>Brussels Airlines訓練航班重新規劃</td><td class="mono">共同專案經理（2人）</td><td class="mono">7個月</td><td class="result">100%法規合規；完整任務流程文件交付</td></tr>
-        <tr class="more-row"><td>IQSMS安全管理系統</td><td class="mono">核心成員暨業務分析師（3人）</td><td class="mono">13個月</td><td class="result">通過系統驗收；協助星宇航空取得SMS相關認證</td></tr>
-        <tr class="more-row"><td>VeeOne跨文化溝通策略研究</td><td class="mono">專案經理（3人）</td><td class="mono">10個月</td><td class="result">完成文化差異研究報告與溝通框架，交付HR執行；延續2023年規劃的HiberMate一對一跨文化配對</td></tr>
-        <tr class="more-row"><td>VeeOne Teams知識庫重構</td><td class="mono">專案經理（2人）</td><td class="mono">3個月</td><td class="result">將Teams頻道重整為易用的知識與溝通平台</td></tr>
-        <tr class="more-row"><td>國家教育研究院SurveyCake系統導入</td><td class="mono">專案經理（2人）</td><td class="mono">3個月</td><td class="result">系統完成導入與移交；完成使用者教育訓練</td></tr>
+        <tr class="group-row more-row"><td colspan="4">其他專案</td></tr>
+        <tr class="more-row"><td>國家教育研究院SurveyCake系統導入</td><td class="mono">負責人（2人）</td><td class="mono">3個月</td><td class="result">系統完成導入與移交；完成使用者教育訓練</td></tr>
+        <tr class="more-row"><td>VeeOne Teams知識庫重構</td><td class="mono">負責人（2人）</td><td class="mono">3個月</td><td class="result">重整內部Teams頻道與文件索引</td></tr>
+        <tr class="more-row"><td>VeeOne跨文化溝通策略研究</td><td class="mono">負責人（3人）</td><td class="mono">10個月</td><td class="result">完成研究報告與溝通框架，交付HR</td></tr>
       </tbody>
     </table>
 
     <button class="more-btn" onclick="toggleMore()" id="more-btn">
       <span id="more-icon">▼</span>
-      <span id="more-text-en" data-en>+ 4 More Projects</span>
-      <span id="more-text-zh" data-zh>+ 4個更多專案</span>
+      <span id="more-text-en" data-en>+ 3 Other Projects</span>
+      <span id="more-text-zh" data-zh>+ 3個其他專案</span>
     </button>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
+<!-- EXPERIENCE -->
+<section class="section section-alt" id="experience">
+  <div class="section-inner">
+    <div class="section-label blue" data-en>Experience</div>
+    <div class="section-label blue" data-zh>工作經歷</div>
+    <h2 data-en>Professional Experience</h2>
+    <h2 data-zh>專業經歷</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Planning Specialist & Consultant</div>
+          <div class="exp-title" data-zh>企劃顧問</div>
+          <div class="exp-company">VeeOne · Sweden (Remote)</div>
+        </div>
+        <div class="exp-date">Apr 2022 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Co-PM (with a colleague) for B2B consulting engagements for airlines in Sweden and Belgium</li>
+        <li data-zh>與同事共同擔任瑞典、比利時航空客戶B2B顧問專案之PM，全程以英文與客戶溝通</li>
+        <li data-en>Produced English SOPs, training materials, analytical reports and client-facing presentations</li>
+        <li data-zh>以英文產出系統操作說明、SOP、訓練教材及技術分析報告</li>
+        <li data-en>Worked remotely across time zones with clients in Sweden and Belgium and colleagues in Europe</li>
+        <li data-zh>與瑞典、比利時客戶及歐洲同事跨時區遠距協作</li>
+        <li data-en>VeeOne is a Boeing/Jeppesen partner and the only non-airline company holding a Jeppesen Optimization licence</li>
+        <li data-zh>VeeOne是Boeing／Jeppesen合作夥伴，也是全球唯一持有Jeppesen Optimization授權的非航空公司</li>
+        <li data-en>Received The Kevin Tucker Award (2025) for contributions to shaping VeeOne's company culture and dedication to work</li>
+        <li data-zh>2025年獲公司頒發The Kevin Tucker Award，表揚對形塑VeeOne企業文化的貢獻與對工作的投入</li>
+      </ul>
+      <div class="exp-keyline" data-en>Key clients: Braathens Regional Airlines (SE) · Brussels Airlines (BE)</div>
+      <div class="exp-keyline" data-zh>主要客戶：Braathens Regional Airlines（瑞典）· Brussels Airlines（比利時）</div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Career Break — Full-time Parent</div>
+          <div class="exp-title" data-zh>育兒專職</div>
+        </div>
+        <div class="exp-date">Nov 2020 – Mar 2022</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Full-time caregiver for young children</li>
+        <li data-zh>專職照顧幼兒</li>
+        <li data-en>Wrote a weekly parenting column on Rob's Nest for nearly two years; closing essay published in Liberty Times</li>
+        <li data-zh>同期於「羅拔的老窩」連載《袋鼠羅爸育兒週記》近兩年，後記刊登於《自由時報》</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Administrative Assistant — Office of Planning</div>
+          <div class="exp-title" data-zh>行政助理（綜合規劃室）</div>
+          <div class="exp-company">National Academy for Educational Research 國家教育研究院 · Taiwan</div>
+        </div>
+        <div class="exp-date">May 2020 – Nov 2020</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Responsible for the SurveyCake survey system implementation end to end: vendor talks, testing, procurement, rollout and user training</li>
+        <li data-zh>負責SurveyCake問卷系統導入，從廠商洽談、測試、採購核銷到上線與使用者教育訓練</li>
+        <li data-en>Bilingual EN/ZH institutional copywriting and translation, including cultural gift product copy</li>
+        <li data-zh>負責綜規室中英文文案撰寫與編譯，含文化禮品雙語文案</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Manager / Senior Specialist</div>
+          <div class="exp-title" data-zh>課長 / 資深專員</div>
+          <div class="exp-company">STARLUX Airlines 星宇航空 · Taiwan</div>
+        </div>
+        <div class="exp-date">Apr 2018 – Apr 2020</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Founding member of the Pilot Scheduling Section; served as de facto section lead during pre-launch as the most senior member</li>
+        <li data-zh>航員調派課開航元老；開航前以課內最資深成員身分實質帶領該課</li>
+        <li data-en>Promoted to Section Manager upon the airline's commercial launch (Jan 2020)</li>
+        <li data-zh>開航後正式升任課長</li>
+        <li data-en>PM for 22-month Greenfield CTi Pegasys CMS implementation</li>
+        <li data-zh>主導22個月CTi Pegasys CMS Greenfield系統導入</li>
+        <li data-en>Authored bilingual Scheduling Guidelines manual and SOP suite; certified internal instructor (STARLUX, 2019, with distinction)</li>
+        <li data-zh>編撰雙語排班準則手冊及SOP文件；2019年以優異成績取得星宇航空內部講師認證</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title" data-en>Assistant Manager / Staff — Pilot Scheduling Section 1</div>
+          <div class="exp-title" data-zh>助理副課長／專員（航員排班作業課）</div>
+          <div class="exp-company">EVA Air 長榮航空 · Taiwan</div>
+        </div>
+        <div class="exp-date">Jul 2011 – Mar 2018</div>
+      </div>
+      <ul class="exp-bullets">
+        <li data-en>Core team member in 18-month Jeppesen CMS implementation (10-person cross-functional team)</li>
+        <li data-zh>參與18個月Jeppesen CMS系統導入（10人跨部門團隊）核心成員</li>
+        <li data-en>As a junior team member, received a LinkedIn recommendation from the Boeing Global Services Senior Manager who led the project, citing 'good potential of leadership attributes'</li>
+        <li data-zh>以新進成員身份，獲帶領該專案的Boeing Global Services資深經理於LinkedIn推薦，評為具備「領導潛質」</li>
+        <li data-en>Planned domestic and international crew schedules for the A330, A321 and MD90 fleets</li>
+        <li data-zh>負責國內外航線機組員排班規劃，涵蓋A330、A321及MD90機隊</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- CREATIVE WORK -->
-<section class="section section-alt" id="creative">
+<section class="section" id="creative">
   <div class="section-inner">
     <div class="section-label gold" data-en>Creative Work</div>
     <div class="section-label gold" data-zh>創意作品</div>
@@ -595,116 +707,6 @@
 
 <div class="section-divider"></div>
 
-<!-- EXPERIENCE -->
-<section class="section" id="experience">
-  <div class="section-inner">
-    <div class="section-label blue" data-en>Experience</div>
-    <div class="section-label blue" data-zh>工作經歷</div>
-    <h2 data-en>Professional Experience</h2>
-    <h2 data-zh>專業經歷</h2>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title" data-en>Planning Specialist & Consultant</div>
-          <div class="exp-title" data-zh>企劃顧問</div>
-          <div class="exp-company">VeeOne · Sweden (Remote)</div>
-        </div>
-        <div class="exp-date">Apr 2022 – Present</div>
-      </div>
-      <ul class="exp-bullets">
-        <li data-en>Co-PM (with a colleague) for B2B consulting engagements for airlines in Sweden and Belgium</li>
-        <li data-zh>與同事共同擔任瑞典、比利時航空客戶B2B顧問專案之PM，全程以英文與客戶溝通</li>
-        <li data-en>Produced English SOPs, training materials, analytical reports and client-facing presentations</li>
-        <li data-zh>以英文產出系統操作說明、SOP、訓練教材及技術分析報告</li>
-        <li data-en>Coordinated cross-cultural remote team across 4+ time zones</li>
-        <li data-zh>協調跨越4個以上時區的跨國遠距團隊</li>
-        <li data-en>VeeOne is a Boeing/Jeppesen partner and the only non-airline company holding a Jeppesen Optimization licence</li>
-        <li data-zh>VeeOne是Boeing／Jeppesen合作夥伴，也是全球唯一持有Jeppesen Optimization授權的非航空公司</li>
-        <li data-en>Received The Kevin Tucker Award (2025) for contributions to shaping VeeOne's company culture and dedication to work</li>
-        <li data-zh>2025年獲公司頒發The Kevin Tucker Award，表揚對形塑VeeOne企業文化的貢獻與對工作的投入</li>
-      </ul>
-      <div class="exp-keyline" data-en>Key clients: Braathens Regional Airlines (SE) · Brussels Airlines (BE)</div>
-      <div class="exp-keyline" data-zh>主要客戶：Braathens Regional Airlines（瑞典）· Brussels Airlines（比利時）</div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title" data-en>Career Break — Full-time Parent</div>
-          <div class="exp-title" data-zh>育兒專職</div>
-        </div>
-        <div class="exp-date">Nov 2020 – Mar 2022</div>
-      </div>
-      <ul class="exp-bullets">
-        <li data-en>Full-time caregiver for young children</li>
-        <li data-zh>專職照顧幼兒</li>
-        <li data-en>Wrote a weekly parenting column on Rob's Nest for nearly two years; closing essay published in Liberty Times</li>
-        <li data-zh>同期於「羅拔的老窩」連載《袋鼠羅爸育兒週記》近兩年，後記刊登於《自由時報》</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title" data-en>Administrative Assistant — Office of Planning</div>
-          <div class="exp-title" data-zh>行政助理（綜合規劃室）</div>
-          <div class="exp-company">National Academy for Educational Research 國家教育研究院 · Taiwan</div>
-        </div>
-        <div class="exp-date">May 2020 – Nov 2020</div>
-      </div>
-      <ul class="exp-bullets">
-        <li data-en>Led SurveyCake survey system implementation as project manager: vendor coordination, rollout, and user training</li>
-        <li data-zh>以PM身分主導SurveyCake問卷系統導入，負責廠商協調、上線與使用者教育訓練</li>
-        <li data-en>Bilingual EN/ZH institutional copywriting and translation, including cultural gift product copy</li>
-        <li data-zh>負責綜規室中英文文案撰寫與編譯，含文化禮品雙語文案</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title" data-en>Manager / Senior Specialist</div>
-          <div class="exp-title" data-zh>課長 / 資深專員</div>
-          <div class="exp-company">STARLUX Airlines 星宇航空 · Taiwan</div>
-        </div>
-        <div class="exp-date">Apr 2018 – Apr 2020</div>
-      </div>
-      <ul class="exp-bullets">
-        <li data-en>Founding member of the Pilot Scheduling Section; served as de facto section lead during pre-launch as the most senior member</li>
-        <li data-zh>航員調派課開航元老；開航前以課內最資深成員身分實質帶領該課</li>
-        <li data-en>Promoted to Section Manager upon the airline's commercial launch (Jan 2020)</li>
-        <li data-zh>開航後正式升任課長</li>
-        <li data-en>PM for 22-month Greenfield CTi Pegasys CMS implementation</li>
-        <li data-zh>主導22個月CTi Pegasys CMS Greenfield系統導入</li>
-        <li data-en>Authored bilingual Scheduling Guidelines manual and SOP suite; certified internal instructor (STARLUX, 2019, with distinction)</li>
-        <li data-zh>編撰雙語排班準則手冊及SOP文件；2019年以優異成績取得星宇航空內部講師認證</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title" data-en>Assistant Manager / Staff — Pilot Scheduling Section 1</div>
-          <div class="exp-title" data-zh>助理副課長／專員（航員排班作業課）</div>
-          <div class="exp-company">EVA Air 長榮航空 · Taiwan</div>
-        </div>
-        <div class="exp-date">Jul 2011 – Mar 2018</div>
-      </div>
-      <ul class="exp-bullets">
-        <li data-en>Core team member in 18-month Jeppesen CMS implementation (10-person cross-functional team)</li>
-        <li data-zh>參與18個月Jeppesen CMS系統導入（10人跨部門團隊）核心成員</li>
-        <li data-en>As a junior team member, received a LinkedIn recommendation from the Boeing Global Services Senior Manager who led the project, citing 'good potential of leadership attributes'</li>
-        <li data-zh>以新進成員身份，獲帶領該專案的Boeing Global Services資深經理於LinkedIn推薦，評為具備「領導潛質」</li>
-        <li data-en>Managed domestic and international crew scheduling for the A330, A321 and MD90 fleets</li>
-        <li data-zh>負責國內外航線機組員排班規劃，涵蓋A330、A321及MD90機隊</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
 <!-- AWARDS & CREDENTIALS -->
 <section class="section section-alt" id="awards">
   <div class="section-inner">
@@ -771,8 +773,8 @@
 <section class="contact-section" id="contact">
   <h2 data-en>Get in Touch</h2>
   <h2 data-zh>聯絡我</h2>
-  <p class="contact-sub" data-en>Open to PM, Bilingual MarComm, Technical Writing & Content roles</p>
-  <p class="contact-sub" data-zh>歡迎PM、雙語行銷編譯、技術文件及內容相關職務洽詢</p>
+  <p class="contact-sub" data-en>Open to crew scheduling, crew control and aviation system implementation roles; also bilingual technical writing</p>
+  <p class="contact-sub" data-zh>歡迎航空機組排班、組員派遣及航空系統導入相關職務洽詢，亦可承接中英雙語技術文件</p>
   <div class="contact-links">
     <a href="mailto:rob94321010@gmail.com" class="contact-link primary">rob94321010@gmail.com</a>
     <a href="https://linkedin.com/in/chengli-chen-177312a1" target="_blank" class="contact-link">LinkedIn</a>
@@ -801,8 +803,8 @@
     const isHidden = rows[0].style.display === 'none' || rows[0].style.display === '';
     rows.forEach(r => r.style.display = isHidden ? 'table-row' : 'none');
     icon.textContent = isHidden ? '▲' : '▼';
-    textEn.textContent = isHidden ? 'Show Less' : '+ 4 More Projects';
-    textZh.textContent = isHidden ? '收起' : '+ 4個更多專案';
+    textEn.textContent = isHidden ? 'Show Less' : '+ 3 Other Projects';
+    textZh.textContent = isHidden ? '收起' : '+ 3個其他專案';
   }
 
   // Init
